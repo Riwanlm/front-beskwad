@@ -1,10 +1,16 @@
 import "./App.css";
+import { Header } from "./Header";
 
 function App() {
   return (
-    <div>
-      <h1>Projet BeSkwad 👋</h1>
-    </div>
+    <>
+      <Header></Header>
+      <div className="container mx-auto">
+        <div className="h-1500 bg-black">
+          <h1>Projet BeSkwad 👋</h1>
+        </div>
+      </div>
+    </>
   );
 }
 
