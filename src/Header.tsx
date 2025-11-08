@@ -1,35 +1,19 @@
 export const Header = () => {
+  const isLogged = true;
   return (
     <header className="sticky top-5 my-5 container m-auto">
       <nav className="border border-0.5 border-[#fcb523]/50 rounded-4xl backdrop-blur-md py-2.5">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-7xl">
+        <div className="flex flex-wrap justify-between items-center mx-4">
           <a href="#" className="flex items-center">
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
+              src="../src/assets/react.svg"
               className="mr-3 h-6 sm:h-9"
-              alt="Flowbite Logo"
+              alt="Logo React"
             />
             <span className="self-center text-xl font-bold">Beskwad</span>
           </a>
-          <div className="items-center w-full lg:flex lg:w-auto lg:order-1">
-            <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 pr-4 pl-3 text-white/60 hover:text-[#fcb423] lg:p-0"
-                  aria-current="page"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 pr-4 pl-3 text-white/60 hover:text-[#fcb423] lg:p-0"
-                >
-                  Company
-                </a>
-              </li>
+          <div className="items-center w-full lg:flex lg:w-auto">
+            <ul className="flex flex-col mt-4 lg:flex-row lg:space-x-8 lg:mt-0">
               <li>
                 <a
                   href="#"
@@ -64,6 +48,23 @@ export const Header = () => {
               </li>
             </ul>
           </div>
+          {isLogged ? (
+            <div className="flex items-center">
+              <a href="#" className="text-white hover:text-[#fcb423]">
+                Déconnexion
+              </a>
+              <a
+                href="#"
+                className="ml-4 w-8 h-8 flex items-center justify-center border rounded-full border-[#fcb423]/50 hover:text-[#fcb423] hover:border-[#fcb423]"
+              >
+                <span className="material-symbols-outlined">person</span>
+              </a>
+            </div>
+          ) : (
+            <a href="#" className="text-white hover:text-[#fcb423]">
+              Inscription
+            </a>
+          )}
         </div>
       </nav>
     </header>
