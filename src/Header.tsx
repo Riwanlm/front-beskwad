@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
 export const Header = () => {
-  const isLogged = false;
+  const isLogged = true;
   return (
     <header className="sticky top-5 my-5 container m-auto">
-      <nav className="border border-0.5 border-[#fcb523]/50 rounded-4xl backdrop-blur-md py-2.5">
+      <nav className="border border-0.5 border-[#fcb523] rounded-4xl backdrop-blur-md py-2.5">
         <div className="flex flex-wrap justify-between items-center mx-4">
           <Link to="/" className="flex items-center">
             <img
@@ -57,7 +57,7 @@ export const Header = () => {
               </a>
               <a
                 href="#"
-                className="ml-4 w-8 h-8 flex items-center justify-center border rounded-full border-[#fcb423]/50 hover:text-[#fcb423] hover:border-[#fcb423]"
+                className="ml-4 w-8 h-8 flex items-center justify-center border rounded-full border-white hover:text-[#fcb423] hover:border-[#fcb423]"
               >
                 <span className="material-symbols-outlined">person</span>
               </a>
