@@ -1,17 +1,19 @@
+import { Link } from "react-router-dom";
+
 export const Header = () => {
-  const isLogged = true;
+  const isLogged = false;
   return (
     <header className="sticky top-5 my-5 container m-auto">
       <nav className="border border-0.5 border-[#fcb523]/50 rounded-4xl backdrop-blur-md py-2.5">
         <div className="flex flex-wrap justify-between items-center mx-4">
-          <a href="#" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img
               src="../src/assets/react.svg"
               className="mr-3 h-6 sm:h-9"
               alt="Logo React"
             />
             <span className="self-center text-xl font-bold">Beskwad</span>
-          </a>
+          </Link>
           <div className="items-center w-full lg:flex lg:w-auto">
             <ul className="flex flex-col mt-4 lg:flex-row lg:space-x-8 lg:mt-0">
               <li>
@@ -61,9 +63,9 @@ export const Header = () => {
               </a>
             </div>
           ) : (
-            <a href="#" className="text-white hover:text-[#fcb423]">
-              Inscription
-            </a>
+            <Link className="text-white hover:text-[#fcb423]" to="/connexion">
+              Connexion
+            </Link>
           )}
         </div>
       </nav>

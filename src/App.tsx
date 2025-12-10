@@ -1,15 +1,19 @@
 import "./App.css";
 import { Header } from "./Header";
+import { Routes, Route } from "react-router-dom";
+import { Connexion } from "./Connexion";
+import { Accueil } from "./Accueil";
+import { Inscription } from "./Inscription";
 
 function App() {
   return (
     <>
       <Header></Header>
-      <div className="container mx-auto">
-        <div className="h-1500 bg-gray-600">
-          <h1>Projet BeSkwad 👋</h1>
-        </div>
-      </div>
+      <Routes>
+        <Route path="/" element={<Accueil />} />
+        <Route path="/connexion" element={<Connexion />} />
+        <Route path="/inscription" element={<Inscription />} />
+      </Routes>
     </>
   );
 }
