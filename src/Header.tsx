@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export const Header = () => {
-  const isLogged = true;
+  const [isLogged, setIsLogged] = useState(false);
+
   return (
     <header className="sticky top-5 my-5 container m-auto">
       <nav className="border border-0.5 border-[#fcb523] rounded-4xl backdrop-blur-md py-2.5">
@@ -52,18 +54,26 @@ export const Header = () => {
           </div>
           {isLogged ? (
             <div className="flex items-center">
-              <a href="#" className="text-white hover:text-[#fcb423]">
+              <Link
+                to="/"
+                className="text-white hover:text-[#fcb423]"
+                onClick={() => setIsLogged(false)}
+              >
                 Déconnexion
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/profil"
                 className="ml-4 w-8 h-8 flex items-center justify-center border rounded-full border-white hover:text-[#fcb423] hover:border-[#fcb423]"
               >
                 <span className="material-symbols-outlined">person</span>
-              </a>
+              </Link>
             </div>
           ) : (
-            <Link className="text-white hover:text-[#fcb423]" to="/connexion">
+            <Link
+              className="text-white hover:text-[#fcb423]"
+              to="/connexion"
+              onClick={() => setIsLogged(true)}
+            >
               Connexion
             </Link>
           )}

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Connexion = () => {
   return (
     <div className="h-[calc(100vh-100px)] flex items-center justify-center">
@@ -17,6 +19,13 @@ export const Connexion = () => {
           className="input bg-[#2E2E2E]"
           placeholder="Password"
         />
+
+        <Link
+          className="text-white text-center pt-3 hover:text-[#fcb423]"
+          to="/inscription"
+        >
+          Pas de compte ? Inscription
+        </Link>
 
         <button className="btn bg-[#fdc700] hover:bg-[#fcb423] mt-4">
           Se connecter
