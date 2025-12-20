@@ -2,6 +2,7 @@ import { CircleX } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuthStore } from "./stores/authStore";
 
 type ConnexionFormValues = {
   email: string;
@@ -12,6 +13,7 @@ export const Connexion = () => {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
+  const { setIsLogged } = useAuthStore();
 
   useEffect(() => {
     if (toastMessage) {
@@ -56,6 +58,7 @@ export const Connexion = () => {
       }
 
       const result = await response.json();
+      setIsLogged(true);
       console.log("Réponse API :", result);
       navigate("/profil");
     } catch (err) {

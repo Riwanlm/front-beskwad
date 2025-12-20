@@ -1,10 +1,10 @@
 import { User } from "lucide-react";
-import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuthStore } from "./stores/authStore";
 
 export const Header = () => {
-  const [isLogged, setIsLogged] = useState(true);
   const navigate = useNavigate();
+  const { isLogged, setIsLogged } = useAuthStore();
 
   const Disconnect = async () => {
     try {
@@ -85,11 +85,7 @@ export const Header = () => {
               </Link>
             </div>
           ) : (
-            <Link
-              className="text-white hover:text-[#fcb423]"
-              to="/connexion"
-              onClick={() => setIsLogged(true)}
-            >
+            <Link className="text-white hover:text-[#fcb423]" to="/connexion">
               Connexion
             </Link>
           )}
