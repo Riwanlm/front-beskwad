@@ -1,6 +1,7 @@
+import { CircleX } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 type ConnexionFormValues = {
   email: string;
@@ -10,6 +11,7 @@ type ConnexionFormValues = {
 export const Connexion = () => {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (toastMessage) {
@@ -41,6 +43,7 @@ export const Connexion = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
+        credentials: "include",
       });
 
       if (!response.ok) {
@@ -54,10 +57,12 @@ export const Connexion = () => {
 
       const result = await response.json();
       console.log("Réponse API :", result);
+      navigate("/profil");
     } catch (err) {
       console.error("Erreur réseau ou inattendu :", err);
     }
   };
+
   return (
     <div className="container m-auto">
       {toastMessage && (
@@ -67,7 +72,7 @@ export const Connexion = () => {
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          <span className="material-symbols-outlined">cancel</span>
+          <CircleX size={18} />
           <span>{toastMessage}</span>
         </div>
       )}

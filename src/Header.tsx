@@ -1,9 +1,25 @@
+import { User } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Header = () => {
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useState(true);
+  const navigate = useNavigate();
 
+  const Disconnect = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/auth/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+
+      console.log(response);
+      navigate("/");
+    } catch (err) {
+      console.error("Erreur réseau ou inattendu :", err);
+    }
+    setIsLogged(false);
+  };
   return (
     <header className="sticky top-5 my-5 container m-auto">
       <nav className="border border-0.5 border-[#fcb523] rounded-4xl backdrop-blur-md py-2.5">
@@ -57,7 +73,7 @@ export const Header = () => {
               <Link
                 to="/"
                 className="text-white hover:text-[#fcb423]"
-                onClick={() => setIsLogged(false)}
+                onClick={() => Disconnect()}
               >
                 Déconnexion
               </Link>
@@ -65,7 +81,7 @@ export const Header = () => {
                 to="/profil"
                 className="ml-4 w-8 h-8 flex items-center justify-center border rounded-full border-white hover:text-[#fcb423] hover:border-[#fcb423]"
               >
-                <span className="material-symbols-outlined">person</span>
+                <User size={18} />
               </Link>
             </div>
           ) : (
