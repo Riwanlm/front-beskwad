@@ -13,7 +13,7 @@ export const Connexion = () => {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
-  const { setIsLogged } = useAuthStore();
+  const { setIsLogged, setUser } = useAuthStore();
 
   useEffect(() => {
     if (toastMessage) {
@@ -59,6 +59,9 @@ export const Connexion = () => {
 
       const result = await response.json();
       setIsLogged(true);
+      if (result.user) {
+        setUser(result.user);
+      }
       console.log("Réponse API :", result);
       navigate("/profil");
     } catch (err) {

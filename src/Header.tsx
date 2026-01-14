@@ -4,7 +4,7 @@ import { useAuthStore } from "./stores/authStore";
 
 export const Header = () => {
   const navigate = useNavigate();
-  const { isLogged, setIsLogged } = useAuthStore();
+  const { isLogged, logout } = useAuthStore();
 
   const Disconnect = async () => {
     try {
@@ -14,11 +14,13 @@ export const Header = () => {
       });
 
       console.log(response);
+      logout();
       navigate("/");
     } catch (err) {
       console.error("Erreur réseau ou inattendu :", err);
+      logout(); // Déconnecter même en cas d'erreur
+      navigate("/");
     }
-    setIsLogged(false);
   };
   return (
     <header className="sticky top-5 my-5 container m-auto">
