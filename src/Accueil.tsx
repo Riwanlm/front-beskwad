@@ -1,4 +1,5 @@
 import useSWR from "swr";
+import { Map } from "./components/Map";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -18,7 +19,6 @@ export const Accueil = () => {
     `http://localhost:3000/events`,
     fetcher
   );
-
   if (data) console.log(data, "COUCOU");
 
   return (
@@ -30,6 +30,7 @@ export const Accueil = () => {
         {data &&
           data.map((event: TEvent) => <div key={event.id}>{event.title}</div>)}
       </div>
+      <Map/>
     </div>
   );
 };
