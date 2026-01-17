@@ -24,6 +24,6 @@ export const Map = () => {
       }
     };
   }, []);
-  
-  return <div className="h-150 w-250 text-center mx-auto m-4" id="map"></div>
+
+  return <div className="h-[400px] sm:h-[500px] md:h-[600px] w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl mx-auto m-4" id="map"></div>
 }
