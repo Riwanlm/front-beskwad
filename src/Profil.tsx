@@ -14,9 +14,7 @@ export const Profil = () => {
   return (
     <div className="container m-auto flex flex-col gap-4">
       <div className="text-center uppercase text-3xl mt-10 mb-5">Bienvenu sur ton profil {user?.username}</div>
-      <div className="h-100 w-auto border rounded-md border-[#fcb423]">
-        <UserEvents />
-      </div>
+      <UserEvents />
       <div className="h-100 w-auto border rounded-md border-[#fcb423]">Section évènements rejoins</div>
       <div className="h-100 w-auto border rounded-md border-[#fcb423] mb-10">Section profils </div>
     </div>

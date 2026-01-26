@@ -23,7 +23,7 @@ export const Header = () => {
     }
   };
   return (
-    <header className="sticky top-5 my-5 container m-auto">
+    <header className="sticky top-5 my-5 container m-auto z-50">
       <nav className="border border-0.5 border-[#fcb523] rounded-4xl backdrop-blur-md py-2.5">
         <div className="flex flex-wrap justify-between items-center mx-4">
           <Link to="/" className="flex items-center">
