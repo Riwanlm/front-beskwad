@@ -29,7 +29,7 @@ export const Inscription = () => {
         />
 
         <button className="btn bg-[#fdc700] hover:bg-[#fcb423] mt-4">
-          Se connecter
+          S'inscrire
         </button>
       </fieldset>
     </div>

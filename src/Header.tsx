@@ -35,40 +35,46 @@ export const Header = () => {
             <span className="self-center text-xl font-bold">Beskwad</span>
           </Link>
           <div className="items-center w-full lg:flex lg:w-auto">
-            <ul className="flex flex-col mt-4 lg:flex-row lg:space-x-8 lg:mt-0">
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 pr-4 pl-3 text-white/60 hover:text-[#fcb423] lg:p-0"
-                >
-                  Marketplace
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 pr-4 pl-3 text-white/60 hover:text-[#fcb423] lg:p-0"
-                >
-                  Features
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 pr-4 pl-3 text-white/60 hover:text-[#fcb423] lg:p-0"
-                >
-                  Team
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 pr-4 pl-3 text-white/60 hover:text-[#fcb423] lg:p-0"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
+            {isLogged ?
+              <ul className="flex flex-col mt-4 lg:flex-row lg:space-x-8 lg:mt-0">
+                <li>
+                  <a
+                    href="#"
+                    className="block py-2 pr-4 pl-3 text-white/60 hover:text-[#fcb423] lg:p-0"
+                  >
+                    Marketplace
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block py-2 pr-4 pl-3 text-white/60 hover:text-[#fcb423] lg:p-0"
+                  >
+                    Features
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block py-2 pr-4 pl-3 text-white/60 hover:text-[#fcb423] lg:p-0"
+                  >
+                    Team
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block py-2 pr-4 pl-3 text-white/60 hover:text-[#fcb423] lg:p-0"
+                  >
+                    Contact
+                  </a>
+                </li>
+              </ul>
+              :
+              <Link to="/inscription">
+                <button className="btn bg-transparent rounded-lg border-[#fcb423] hover:rounded-4xl hover:border-white hover:text-[#fcb423]">Inscrit toi dès maintenant !</button>
+              </Link>
+            }
           </div>
           {isLogged ? (
             <div className="flex items-center">

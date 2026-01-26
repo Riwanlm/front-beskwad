@@ -26,17 +26,17 @@ export const Accueil = () => {
 
   return (
     <div className="container mx-auto">
-      <section className="h-80 w-auto bg-[url(../src/assets/annie-spratt-ocz2K0KrDKE-unsplash.jpg)] bg-cover bg-no-repeat bg-center flex flex-col items-center justify-center gap-4">
+      <section className="h-150 w-auto bg-[url(../src/assets/annie-spratt-ocz2K0KrDKE-unsplash.jpg)] bg-cover bg-no-repeat bg-center flex flex-col items-center justify-center gap-4 rounded-md">
         <h1 className="bg-black/30 border-none border-white/30 outline-white/30 shadow-xl/55 rounded-xl text-white text-center text-4xl uppercase font-extrabold p-4 italic">Marre de faire du sport en mode solo ? <br />
           Rejoins l'aventure Beskwad !</h1>
         <Link to="/inscription" >
           <button className="btn bg-[#fcb523] border border-white rounded-4xl btn-xs hover:bg-white/30 hover:text-[#fcb523] hover:border-[#fcb523] sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl"> <CircleArrowRight size={24} />Inscrit toi par ici </button>
         </Link>
       </section>
-      <section className="h-80 w-auto">
+      <section className="h-150 w-auto text-center flex items-center justify-center bg-gray-700">
         SECTION 2
       </section>
-      <section className="h-80 w-auto">
+      <section className="h-150 w-auto text-center flex items-center justify-center bg-gray-900">
         SECTION 3
       </section>
       <section>

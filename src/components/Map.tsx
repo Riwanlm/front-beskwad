@@ -29,7 +29,7 @@ export const Map = ({ events }: { events: TEvent[] | undefined }) => {
     events?.forEach((e) => {
       console.log(e);
       const marker = L.marker([Number(e.latitude), Number(e.longitude)]).addTo(map);
-      marker.bindPopup(`Titre de l'évènement ${e.title}`)
+      marker.bindPopup(`<b>${e.title}</b> <br /><br /> ${e.description ? e.description : "Pas de description"}`)
     })
 
 
