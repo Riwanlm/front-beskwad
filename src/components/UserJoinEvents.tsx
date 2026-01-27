@@ -1,12 +1,12 @@
-import { CirclePlus, Trash2 } from "lucide-react"
+import { CircleX, Search } from "lucide-react";
 
-export const UserEvents = () => {
+export const UserJoinEvents = () => {
 
   return (
-    <fieldset className="fieldset  max-h-[400px] overflow-x-auto overflow-y-auto w-auto border rounded-md border-[#fcb423]">
-      <legend className="fieldset-legend px-4 mx-4">Liste de vos évènements créer</legend>
+    <fieldset className="fieldset  max-h-[400px] overflow-x-auto overflow-y-auto w-auto border rounded-md border-[#fcb423] mb-10">
+      <legend className="fieldset-legend px-4 mx-4">Liste de vos participations aux évènements</legend>
       <div className="block text-center">
-        <button className="btn btn-wide btn-outline btn-success m-auto my-5"><CirclePlus size={18} /> Créer un nouvel évènement</button>
+        <button className="btn btn-wide btn-outline btn-info m-auto my-5"><Search size={18} /> Rechercher un évènement</button>
       </div>
       <table className="table mb-5">
         {/* head */}
@@ -56,7 +56,7 @@ export const UserEvents = () => {
             </th>
             <th>
               <button className="btn btn-circle btn-outline btn-md btn-error">
-                <Trash2 size={18} />
+                <CircleX size={18} />
               </button>
             </th>
           </tr>
@@ -94,7 +94,7 @@ export const UserEvents = () => {
             </th>
             <th>
               <button className="btn btn-circle btn-outline btn-md btn-error">
-                <Trash2 size={18} />
+                <CircleX size={18} />
               </button>
             </th>
           </tr>
@@ -132,7 +132,7 @@ export const UserEvents = () => {
             </th>
             <th>
               <button className="btn btn-circle btn-outline btn-md btn-error">
-                <Trash2 size={18} />
+                <CircleX size={18} />
               </button>
             </th>
           </tr>
@@ -170,7 +170,7 @@ export const UserEvents = () => {
             </th>
             <th>
               <button className="btn btn-circle btn-outline btn-md btn-error">
-                <Trash2 size={18} />
+                <CircleX size={18} />
               </button>
             </th>
           </tr>
@@ -208,12 +208,12 @@ export const UserEvents = () => {
             </th>
             <th>
               <button className="btn btn-circle btn-outline btn-md btn-error">
-                <Trash2 size={18} />
+                <CircleX size={18} />
               </button>
             </th>
           </tr>
         </tbody>
       </table>
     </fieldset>
-  )
-}
+  );
+};
