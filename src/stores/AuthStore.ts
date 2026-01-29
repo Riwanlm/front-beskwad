@@ -1,10 +1,10 @@
 import { create } from "zustand";
 
-interface User {
+export type User = {
   id?: string;
   email?: string;
   username?: string;
-}
+};
 
 interface AuthState {
   isLogged: boolean;
@@ -37,10 +37,7 @@ export const useAuthStore = create<AuthState>((set) => ({
         set({ isLogged: false, user: null, isLoading: false });
       }
     } catch (error) {
-      console.error(
-        "Erreur lors de la vérification de l'authentification:",
-        error
-      );
+      console.error("Erreur lors de la vérification de l'authentification:", error);
       set({ isLogged: false, user: null, isLoading: false });
     }
   },

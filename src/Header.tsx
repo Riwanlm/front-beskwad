@@ -42,7 +42,7 @@ export const Header = () => {
                     href="#"
                     className="block py-2 pr-4 pl-3 text-white/60 hover:text-[#fcb423] lg:p-0"
                   >
-                    Marketplace
+                    Participer
                   </a>
                 </li>
                 <li>
@@ -50,7 +50,7 @@ export const Header = () => {
                     href="#"
                     className="block py-2 pr-4 pl-3 text-white/60 hover:text-[#fcb423] lg:p-0"
                   >
-                    Features
+                    ? Map évènements ?
                   </a>
                 </li>
                 <li>
@@ -58,15 +58,7 @@ export const Header = () => {
                     href="#"
                     className="block py-2 pr-4 pl-3 text-white/60 hover:text-[#fcb423] lg:p-0"
                   >
-                    Team
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 pr-4 pl-3 text-white/60 hover:text-[#fcb423] lg:p-0"
-                  >
-                    Contact
+                    Créer un évènement
                   </a>
                 </li>
               </ul>
