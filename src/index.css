@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@theme {
+  --color-OrangeBase: #fcb423;
+  --color-two: #e0a01f; /* Optionnel : version hover */
+}
+
 :root {
   /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
   color-scheme: light dark;

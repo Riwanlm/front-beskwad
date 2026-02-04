@@ -74,9 +74,8 @@ export const Connexion = () => {
       {toastMessage && (
         <div
           role="alert"
-          className={`alert alert-error transition-opacity duration-300 ${
-            isVisible ? "opacity-100" : "opacity-0"
-          }`}
+          className={`alert alert-error transition-opacity duration-300 ${isVisible ? "opacity-100" : "opacity-0"
+            }`}
         >
           <CircleX size={18} />
           <span>{toastMessage}</span>
@@ -124,7 +123,7 @@ export const Connexion = () => {
           )}
 
           <Link
-            className="text-white text-center pt-3 hover:text-[#fcb423]"
+            className="text-white text-center pt-3 hover:text-OrangeBase"
             to="/inscription"
           >
             Pas de compte ? Inscription
@@ -132,7 +131,7 @@ export const Connexion = () => {
 
           <button
             type="submit"
-            className="btn bg-[#fdc700] hover:bg-[#fcb423] mt-4"
+            className="btn bg-[#fdc700] hover:bg-OrangeBase mt-4"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Connexion..." : "Se connecter"}

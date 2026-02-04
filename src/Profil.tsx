@@ -11,7 +11,7 @@ export const Profil = () => {
 
 
   return (
-    <div className="container m-auto flex flex-col gap-4">
+    <div className="container m-auto w-full flex flex-col gap-4">
       <UserSettings />
       <UserEvents />
       <UserJoinEvents />

@@ -28,7 +28,7 @@ export const Inscription = () => {
           placeholder="Password"
         />
 
-        <button className="btn bg-[#fdc700] hover:bg-[#fcb423] mt-4">
+        <button className="btn bg-[#fdc700] hover:bg-OrangeBase mt-4">
           S'inscrire
         </button>
       </fieldset>

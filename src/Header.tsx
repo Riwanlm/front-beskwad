@@ -1,4 +1,4 @@
-import { User } from "lucide-react";
+import { Home, LogIn, LogOut, PlusCircle, Search, TextAlignJustify, UserPlus, UserRoundCog } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthStore } from "./stores/authStore";
 
@@ -23,74 +23,42 @@ export const Header = () => {
     }
   };
   return (
-    <header className="sticky top-5 my-5 container m-auto z-50">
-      <nav className="border border-0.5 border-[#fcb523] rounded-4xl backdrop-blur-md py-2.5">
-        <div className="flex flex-wrap justify-between items-center mx-4">
-          <Link to="/" className="flex items-center">
-            <img
-              src="../src/assets/react.svg"
-              className="mr-3 h-6 sm:h-9"
-              alt="Logo React"
-            />
-            <span className="self-center text-xl font-bold">Beskwad</span>
-          </Link>
-          <div className="items-center w-full lg:flex lg:w-auto">
-            {isLogged ?
-              <ul className="flex flex-col mt-4 lg:flex-row lg:space-x-8 lg:mt-0">
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 pr-4 pl-3 text-white/60 hover:text-[#fcb423] lg:p-0"
-                  >
-                    Participer
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 pr-4 pl-3 text-white/60 hover:text-[#fcb423] lg:p-0"
-                  >
-                    ? Map évènements ?
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 pr-4 pl-3 text-white/60 hover:text-[#fcb423] lg:p-0"
-                  >
-                    Créer un évènement
-                  </a>
-                </li>
-              </ul>
-              :
-              <Link to="/inscription">
-                <button className="btn bg-transparent rounded-lg border-[#fcb423] hover:rounded-4xl hover:border-white hover:text-[#fcb423]">Inscrit toi dès maintenant !</button>
-              </Link>
-            }
+    <div className="navbar border border-0.5 border-[#fcb523] rounded-4xl backdrop-blur-md py-2.5 sticky top-5 my-5 container m-auto z-50">
+      <div className="navbar-start">
+        <Link to="/" className="btn ml-2 w-10 h-10 flex items-center justify-center border btn-circle border-white hover:text-OrangeBase hover:border-OrangeBase"><Home size={20} /></Link>
+      </div>
+      <div className="navbar-center">
+        <span className="self-center text-xl uppercase font-bold">~ Beskwad ~</span>
+      </div>
+      <div className="navbar-end">
+        <div className="dropdown dropdown-end">
+          <div tabIndex={0} role="button" className="btn ml-2 w-10 h-10 flex items-center justify-center border btn-circle border-white hover:text-OrangeBase hover:border-OrangeBase">
+            <TextAlignJustify size={20} />
           </div>
-          {isLogged ? (
-            <div className="flex items-center">
-              <Link
-                to="/"
-                className="text-white hover:text-[#fcb423]"
-                onClick={() => Disconnect()}
-              >
-                Déconnexion
-              </Link>
-              <Link
-                to="/profil"
-                className="ml-4 w-8 h-8 flex items-center justify-center border rounded-full border-white hover:text-[#fcb423] hover:border-[#fcb423]"
-              >
-                <User size={18} />
-              </Link>
-            </div>
-          ) : (
-            <Link className="text-white hover:text-[#fcb423]" to="/connexion">
-              Connexion
-            </Link>
-          )}
+          <ul
+            tabIndex={-1}
+            className="menu menu-md dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow shadow-[#fcb523]">
+            {isLogged ? (
+              <>
+                <li><Link to="/profil"><UserRoundCog size={16} /> Mon compte</Link></li>
+                <li><Link to="#"><Search size={16} /> Rechercher un évènement</Link></li>
+                <li><Link to="#"><PlusCircle size={16} /> Ajouter un évènement</Link></li>
+                <li><Link to="/" onClick={() => Disconnect()}><LogOut size={16} /> Déconnexion</Link></li>
+              </>
+            )
+              : (
+                <>
+                  <li><Link to="/inscription"><UserPlus size={16} /> Inscription</Link></li>
+                  <li><Link to="/connexion"><LogIn size={16} />Connexion</Link></li>
+                </>
+              )}
+
+          </ul>
         </div>
-      </nav>
-    </header>
+      </div>
+    </div>
+
   );
 };
+
+
