@@ -13,7 +13,7 @@ export const Connexion = () => {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
-  const { setIsLogged, setUser } = useAuthStore();
+  const { setIsLogged, setUser, isLogged } = useAuthStore();
 
   useEffect(() => {
     if (toastMessage) {
@@ -30,6 +30,15 @@ export const Connexion = () => {
       return () => clearTimeout(timer);
     }
   }, [toastMessage]);
+
+  useEffect(() => {
+    if (isLogged) {
+      const timer = setTimeout(() => {
+        navigate("/profil");
+      }, 2500);
+      return () => clearTimeout(timer);
+    }
+  }, [isLogged, navigate])
 
   const {
     register,
@@ -53,6 +62,7 @@ export const Connexion = () => {
         const message =
           errorBody?.message || "Une erreur est survenue lors de la connexion";
         console.log(errorBody, "ERRORBODY");
+
         setToastMessage(message);
         return;
       }
@@ -63,7 +73,6 @@ export const Connexion = () => {
         setUser(result.user);
       }
       console.log("Réponse API :", result);
-      navigate("/profil");
     } catch (err) {
       console.error("Erreur réseau ou inattendu :", err);
     }
@@ -82,61 +91,65 @@ export const Connexion = () => {
         </div>
       )}
       <div className="h-[calc(100vh-100px)] flex items-center justify-center">
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="fieldset border-base-300 rounded-box w-xs border p-4"
-        >
-          <legend className="fieldset-legend">Login</legend>
 
-          <label className="label">Email</label>
-          <input
-            type="email"
-            className="input bg-[#2E2E2E]"
-            placeholder="Email"
-            {...register("email", {
-              required: "L'email est obligatoire",
-              pattern: {
-                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                message: "Email invalide",
-              },
-            })}
-          />
-          {errors.email && (
-            <p className="text-red-400 text-sm">{errors.email.message}</p>
-          )}
-
-          <label className="label">Password</label>
-          <input
-            type="password"
-            className="input bg-[#2E2E2E]"
-            placeholder="Password"
-            {...register("password", {
-              required: "Le mot de passe est obligatoire",
-              minLength: {
-                value: 6,
-                message: "Minimum 6 caractères",
-              },
-            })}
-          />
-          {errors.password && (
-            <p className="text-red-400 text-sm">{errors.password.message}</p>
-          )}
-
-          <Link
-            className="text-white text-center pt-3 hover:text-OrangeBase"
-            to="/inscription"
+        {isLogged ?
+          <img src="../src/assets/check-connexion.gif" className="h-50 w-auto rounded-4xl" alt="Check" />
+          :
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="fieldset border-base-300 rounded-box w-xs border p-4"
           >
-            Pas de compte ? Inscription
-          </Link>
+            <legend className="fieldset-legend">Login</legend>
 
-          <button
-            type="submit"
-            className="btn bg-[#fdc700] hover:bg-OrangeBase mt-4"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Connexion..." : "Se connecter"}
-          </button>
-        </form>
+            <label className="label">Email</label>
+            <input
+              type="email"
+              className="input bg-[#2E2E2E]"
+              placeholder="Email"
+              {...register("email", {
+                required: "L'email est obligatoire",
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Email invalide",
+                },
+              })}
+            />
+            {errors.email && (
+              <p className="text-red-400 text-sm">{errors.email.message}</p>
+            )}
+
+            <label className="label">Password</label>
+            <input
+              type="password"
+              className="input bg-[#2E2E2E]"
+              placeholder="Password"
+              {...register("password", {
+                required: "Le mot de passe est obligatoire",
+                minLength: {
+                  value: 6,
+                  message: "Minimum 6 caractères",
+                },
+              })}
+            />
+            {errors.password && (
+              <p className="text-red-400 text-sm">{errors.password.message}</p>
+            )}
+
+            <Link
+              className="text-white text-center pt-3 hover:text-OrangeBase"
+              to="/inscription"
+            >
+              Pas de compte ? Inscription
+            </Link>
+
+            <button
+              type="submit"
+              className="btn bg-[#fdc700] hover:bg-OrangeBase mt-4"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Connexion..." : "Se connecter"}
+            </button>
+          </form>}
       </div>
     </div>
   );

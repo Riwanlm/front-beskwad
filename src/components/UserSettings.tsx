@@ -5,6 +5,8 @@ import { useRef } from "react";
 export const UserSettings = () => {
 
   const user = useAuthStore().user;
+  console.log(user, 'USER');
+
   const modalRef = useRef<HTMLDialogElement>(null);
 
   const openModal = () => {
